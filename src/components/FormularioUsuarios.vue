@@ -93,11 +93,12 @@ export default {
             axios.get('http://localhost:8080/api/usuarios/' + this.Id)
                 .then(response => {
                     console.log('Usuarios consultados:', response.data);
+                    this.Id = response.data.id || this.Id;
                     this.nombre = response.data.nombre;
                     this.apellido = response.data.apellido;
-                    this.TipoDeSangre = response.data.TipoDeSangre;
-                    this.Cargo = response.data.Cargo;
-                    this.Email = response.data.Email;
+                    this.TipoDeSangre = response.data.tipoDeSangre;
+                    this.Cargo = response.data.cargo;
+                    this.Email = response.data.email;
                 })
                 .catch(error => {
                     console.error('Error al consultar los usuarios:', error);
