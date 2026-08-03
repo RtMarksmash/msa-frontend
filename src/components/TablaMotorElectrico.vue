@@ -7,11 +7,12 @@
 
         <thead>
             <tr>
+                <th>id</th>
                 <th>nombre</th>
                 <th>marca</th>
                 <th>amperaje</th>
                 <th>voltaje</th>
-                <th>potencia</th>
+                <th>motor potencia</th>
                 <th>rodamientos</th>
             </tr>
         </thead>
@@ -35,10 +36,10 @@
 import axios from 'axios';
 
 export default {
-    name: 'TablaUsuarios',
+    name: 'TablaMotorElectrico',
     data() {
         return {
-            usuarios: []
+            motores: []
         }
     },
     methods: {
@@ -56,4 +57,5 @@ export default {
         this.obtenerMotores();
     }
 }
+
 </script>
