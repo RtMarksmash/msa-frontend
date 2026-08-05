@@ -6,7 +6,7 @@
 
                <div class="form-group">
                 <label for="Id">Id:</label>
-                <input type="text" id="Id" v-model="Id" name="Id" required>
+                <input type="text" id="Id" v-model="Id" name="Id">
             </div>
 
             <div class="form-group">
@@ -18,6 +18,9 @@
                 <label for="marca">marca:</label>
                 <input type="text" id="marca" v-model="marca" name="marca" required>
             </div>
+
+
+
 
             <div class="form-group">
                 <label for="amperaje">amperaje:</label>

@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         actualizarTabla() {
-            this.$refs.tablaBombaHidraulica.obtenerBombasHidraulicas();
+            this.$refs.tablaBombaHidraulica.obtenerBombas();
         }
     }
 

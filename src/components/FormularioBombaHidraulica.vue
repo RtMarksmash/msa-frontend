@@ -6,7 +6,7 @@
 
                <div class="form-group">
                 <label for="Id">Id:</label>
-                <input type="text" id="Id" v-model="Id" name="Id" required>
+                <input type="text" id="Id" v-model="Id" name="Id">
             </div>
 
             <div class="form-group">
@@ -20,22 +20,22 @@
             </div>
 
             <div class="form-group">
-                <label for="amperaje">amperaje:</label>
-                <input type="text" id="amperaje" v-model="amperaje" name="amperaje" required>
+                <label for="alturaDinamica">altura dinámica:</label>
+                <input type="text" id="alturaDinamica" v-model="alturaDinamica" name="alturaDinamica" required>
             </div>
 
              <div class="form-group">
-                <label for="voltaje">voltaje:</label>
-                <input type="text" id="voltaje" v-model="voltaje" name="voltaje" required>
+                <label for="caudal">caudal:</label>
+                <input type="text" id="caudal" v-model="caudal" name="caudal" required>
             </div>
             <div class="form-group">
-                <label for="motorPotencia">potencia del motor:</label>
-                <input type="text" id="motorPotencia" v-model="motorPotencia" name="motorPotencia" required>
+                <label for="diametroDeSuccion">diámetro de succión:</label>
+                <input type="text" id="diametroDeSuccion" v-model="diametroDeSuccion" name="diametroDeSuccion" required>
             </div>
 
             <div class="form-group">
-                <label for="rodamientos">rodamientos:</label>
-                <input type="text" id="rodamientos" v-model="rodamientos" name="rodamientos" required>
+                <label for="diametroDeDescarga">diámetro de descarga:</label>
+                <input type="text" id="diametroDeDescarga" v-model="diametroDeDescarga" name="diametroDeDescarga" required>
             </div>
 
             <button type="submit">Guardar</button><br>
@@ -58,102 +58,104 @@ export default {
             Id: '',
             nombre: '',
             marca: '',
-            amperaje: '',
-            voltaje: '',
-            motorPotencia: '',
-            rodamientos: '',
+            alturaDinamica: '',
+            caudal: '',
+            diametroDeSuccion: '',
+            diametroDeDescarga: '',
         }
     },
     methods: {
         guardar() {
-            const motor = {
+            const bomba = {
+                id: this.Id,
                 nombre: this.nombre,
                 marca: this.marca,
-                amperaje: this.amperaje,
-                voltaje: this.voltaje,
-                motorPotencia: this.motorPotencia,
+                alturaDinamica: this.alturaDinamica,
+                caudal: this.caudal,
+                diametroDeSuccion: this.diametroDeSuccion,
+                diametroDeDescarga: this.diametroDeDescarga,
                 rodamientos: this.rodamientos,
                 
             };
 
-            axios.post('http://localhost:8080/api/motores', motor)
+            axios.post('http://localhost:8080/api/bombas', bomba)
                 .then(response => {
-                    console.log('motor guardado:', response.data);
-                    alert('Motor guardado exitosamente');
+                    console.log('bomba guardada:', response.data);
+                    alert('Bomba guardada exitosamente');
                     this.Id = '';
                     this.nombre = ''; 
                     this.marca = '';
-                    this.amperaje = '';
-                    this.voltaje = '';
-                    this.motorPotencia = '';
-                    this.rodamientos = '';
+                    this.alturaDinamica = '';
+                    this.caudal = '';
+                    this.diametroDeSuccion = '';
+                    this.diametroDeDescarga = '';
                     this.$emit('actualizar-tabla');  
                    
                 })
                 .catch(error => {
-                    console.error('Error al guardar el motor:', error);
-                    alert('Error al guardar el motor');
+                    console.error('Error al guardar la bomba:', error);
+                    alert('Error al guardar la bomba');
                     
                 });
         },
         consultar() {
-            axios.get('http://localhost:8080/api/motores/' + this.Id)
+            axios.get('http://localhost:8080/api/bombas/' + this.Id)
                 .then(response => {
-                    console.log('motores consultados:', response.data);
+                    console.log('bombas consultadas:', response.data);
                     this.Id = response.data.id || this.Id;
                     this.nombre = response.data.nombre;
                     this.marca = response.data.marca;
-                    this.amperaje = response.data.amperaje;
-                    this.voltaje = response.data.voltaje;
-                    this.motorPotencia = response.data.motorPotencia;
-                    this.rodamientos = response.data.rodamientos;
+                    this.alturaDinamica = response.data.alturaDinamica;
+                    this.caudal = response.data.caudal;
+                    this.diametroDeSuccion = response.data.diametroDeSuccion;
+                    this.diametroDeDescarga = response.data.diametroDeDescarga;
                 })
                 .catch(error => {
-                    console.error('Error al consultar los motores:', error);
-                    alert('Error al consultar los motores');
+                    console.error('Error al consultar las bombas:', error);
+                    alert('Error al consultar las bombas');
                     
                 });
         },
         actualizar() {
-            const motor = {
+            const bomba = {
                 id: this.Id,
                 nombre: this.nombre,
                 marca: this.marca,
-                amperaje: this.amperaje,
-                voltaje: this.voltaje,
-                motorPotencia: this.motorPotencia,
-                rodamientos: this.rodamientos,
+                alturaDinamica: this.alturaDinamica,
+                caudal: this.caudal,
+                diametroDeSuccion: this.diametroDeSuccion,
+                diametroDeDescarga: this.diametroDeDescarga,
             };
 
-            axios.put('http://localhost:8080/api/motores/actualizar/' + this.Id, motor)
+            axios.put('http://localhost:8080/api/bombas/actualizar/' + this.Id, bomba)
                 .then(response => {
-                    console.log('Motor actualizado:', response.data);
-                    alert('Motor actualizado exitosamente');
+                    console.log('Bomba actualizada:', response.data);
+                    alert('Bomba actualizada exitosamente');
                     this.$emit('actualizar-tabla');
                 })
                 .catch(error => {
-                    console.error('Error al actualizar el motor:', error);
-                    alert('Error al actualizar el motor');
+                    console.error('Error al actualizar la bomba:', error);
+                    alert('Error al actualizar la bomba');
                 });
         },
         eliminar() {
-            axios.delete('http://localhost:8080/api/motores/' + this.Id)
+            axios.delete('http://localhost:8080/api/bombas/' + this.Id)
                 .then(response => {
-                    console.log('Motor eliminado:', response.data);
-                    alert('Motor eliminado exitosamente');
+                    console.log('Bomba eliminada:', response.data);
+                    alert('Bomba eliminada exitosamente');
                     this.Id = '';
                     this.nombre = ''; 
                     this.marca = '';
-                    this.amperaje = '';
-                    this.voltaje = '';
-                    this.motorPotencia = '';
-                    this.rodamientos = '';
+                    this.alturaDinamica = '';
+                    this.caudal = '';
+                    this.diametroDeSuccion = '';
+                    this.diametroDeDescarga = '';
                     this.$emit('actualizar-tabla');
                     
                 })
                 .catch(error => {
-                    console.error('Error al eliminar el motor:', error);
-                    alert('Error al eliminar el motor');
+                    console.error('Error al eliminar la bomba:', error);
+                    alert('Error al eliminar la bomba');
                     
                 });
         }

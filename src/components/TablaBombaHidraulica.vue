@@ -23,8 +23,8 @@
                 <td>{{ bomba.marca }}</td>
                 <td>{{ bomba.alturaDinamica }}</td>
                 <td>{{ bomba.caudal }}</td>
-                <td>{{ bomba.diametroSuccion }}</td>
-                <td>{{ bomba.diametroDescarga }}</td>
+                <td>{{ bomba.diametroDeSuccion }}</td>
+                <td>{{ bomba.diametroDeDescarga }}</td>
             </tr>
         </tbody>
     </table>

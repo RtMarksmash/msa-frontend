@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         actualizarTabla() {
-            this.$refs.tablaMotorElectrico.obtenerMotoresElectrico();
+            this.$refs.tablaMotorElectrico.obtenerMotores();
         }
     }
 

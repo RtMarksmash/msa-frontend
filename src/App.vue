@@ -3,6 +3,9 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About </router-link>
     <router-link to="/usuarios"> Usuarios</router-link>
+    <router-link to="/motores"> Motores</router-link>
+    <router-link to="/bombas"> Bombas</router-link>
+
   </nav>
   <router-view/>
 </template>
