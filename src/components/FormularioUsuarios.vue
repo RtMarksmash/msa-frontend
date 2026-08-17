@@ -1,5 +1,4 @@
 <template>
-
     <div class="container">
         <h1>Formulario Usuarios</h1>
 
@@ -62,7 +61,6 @@ export default {
     methods: {
         guardar() {
             const usuario = {
-                id: this.Id,
                 nombre: this.nombre,
                 apellido: this.apellido,
                 tipoDeSangre: this.TipoDeSangre,
@@ -70,7 +68,7 @@ export default {
                 email: this.Email
             };
 
-            axios.post('http://localhost:8080/api/usuarios', usuario)
+            axios.post('https://msa-project2-production.up.railway.app/api/usuarios', usuario)
                 .then(response => {
                     console.log('usuario guardado:', response.data);
                     alert('Usuario guardado exitosamente');
@@ -90,7 +88,7 @@ export default {
                 });
         },
         consultar() {
-            axios.get('http://localhost:8080/api/usuarios/' + this.Id)
+            axios.get('https://msa-project2-production.up.railway.app/api/usuarios/' + this.Id)
                 .then(response => {
                     console.log('Usuarios consultados:', response.data);
                     this.Id = response.data.id || this.Id;
@@ -116,7 +114,7 @@ export default {
                 email: this.Email,
             };
 
-            axios.put('http://localhost:8080/api/usuarios/actualizar/' + this.Id, usuario)
+            axios.put('https://msa-project2-production.up.railway.app/api/usuarios/actualizar/' + this.Id, usuario)
                 .then(response => {
                     console.log('Usuario actualizado:', response.data);
                     alert('Usuario actualizado exitosamente');
@@ -129,7 +127,7 @@ export default {
                 });
         },
         eliminar() {
-            axios.delete('http://localhost:8080/api/usuarios/' + this.Id)
+            axios.delete('https://msa-project2-production.up.railway.app/api/usuarios/' + this.Id)
                 .then(response => {
                     console.log('Usuario eliminado:', response.data);
                     alert('Usuario eliminado exitosamente');

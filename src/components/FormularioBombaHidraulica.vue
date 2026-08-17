@@ -67,7 +67,6 @@ export default {
     methods: {
         guardar() {
             const bomba = {
-                id: this.Id,
                 nombre: this.nombre,
                 marca: this.marca,
                 alturaDinamica: this.alturaDinamica,
@@ -78,7 +77,7 @@ export default {
                 
             };
 
-            axios.post('http://localhost:8080/api/bombas', bomba)
+            axios.post('https://msa-project2-production.up.railway.app/api/bombas', bomba)
                 .then(response => {
                     console.log('bomba guardada:', response.data);
                     alert('Bomba guardada exitosamente');
@@ -99,7 +98,7 @@ export default {
                 });
         },
         consultar() {
-            axios.get('http://localhost:8080/api/bombas/' + this.Id)
+            axios.get('https://msa-project2-production.up.railway.app/api/bombas/' + this.Id)
                 .then(response => {
                     console.log('bombas consultadas:', response.data);
                     this.Id = response.data.id || this.Id;
@@ -127,7 +126,7 @@ export default {
                 diametroDeDescarga: this.diametroDeDescarga,
             };
 
-            axios.put('http://localhost:8080/api/bombas/actualizar/' + this.Id, bomba)
+            axios.put('https://msa-project2-production.up.railway.app/api/bombas/actualizar/' + this.Id, bomba)
                 .then(response => {
                     console.log('Bomba actualizada:', response.data);
                     alert('Bomba actualizada exitosamente');
@@ -139,7 +138,7 @@ export default {
                 });
         },
         eliminar() {
-            axios.delete('http://localhost:8080/api/bombas/' + this.Id)
+            axios.delete('https://msa-project2-production.up.railway.app/api/bombas/' + this.Id)
                 .then(response => {
                     console.log('Bomba eliminada:', response.data);
                     alert('Bomba eliminada exitosamente');

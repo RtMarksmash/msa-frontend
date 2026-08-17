@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         obtenerMotores() {
-            axios.get('http://localhost:8080/api/motores/listar')
+            axios.get('https://msa-project2-production.up.railway.app/api/motores/listar')
                 .then(response => {
                     this.motores = response.data;
                 })

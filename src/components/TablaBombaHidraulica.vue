@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         obtenerBombas() {
-            axios.get('http://localhost:8080/api/bombas/listar')
+            axios.get('https://msa-project2-production.up.railway.app/api/bombas/listar')
                 .then(response => {
                     this.bombas = response.data;
                 })

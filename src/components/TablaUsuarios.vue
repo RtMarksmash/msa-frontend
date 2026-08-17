@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         obtenerUsuarios() {
-            axios.get('http://localhost:8080/api/usuarios/listar')
+            axios.get('https://msa-project2-production.up.railway.app/api/usuarios/listar')
                 .then(response => {
                     this.usuarios = response.data;
                 })

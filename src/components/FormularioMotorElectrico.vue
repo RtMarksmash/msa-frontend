@@ -79,7 +79,7 @@ export default {
                 
             };
 
-            axios.post('http://localhost:8080/api/motores', motor)
+            axios.post('https://msa-project2-production.up.railway.app/api/motores', motor)
                 .then(response => {
                     console.log('motor guardado:', response.data);
                     alert('Motor guardado exitosamente');
@@ -100,7 +100,7 @@ export default {
                 });
         },
         consultar() {
-            axios.get('http://localhost:8080/api/motores/' + this.Id)
+            axios.get('https://msa-project2-production.up.railway.app/api/motores/' + this.Id)
                 .then(response => {
                     console.log('motores consultados:', response.data);
                     this.Id = response.data.id || this.Id;
@@ -128,7 +128,7 @@ export default {
                 rodamientos: this.rodamientos,
             };
 
-            axios.put('http://localhost:8080/api/motores/actualizar/' + this.Id, motor)
+            axios.put('https://msa-project2-production.up.railway.app/api/motores/actualizar/' + this.Id, motor)
                 .then(response => {
                     console.log('Motor actualizado:', response.data);
                     alert('Motor actualizado exitosamente');
@@ -140,7 +140,7 @@ export default {
                 });
         },
         eliminar() {
-            axios.delete('http://localhost:8080/api/motores/' + this.Id)
+            axios.delete('https://msa-project2-production.up.railway.app/api/motores/' + this.Id)
                 .then(response => {
                     console.log('Motor eliminado:', response.data);
                     alert('Motor eliminado exitosamente');

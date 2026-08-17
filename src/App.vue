@@ -1,10 +1,11 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Home </router-link> |
     <router-link to="/about">About </router-link>
-    <router-link to="/usuarios"> Usuarios</router-link>
-    <router-link to="/motores"> Motores</router-link>
-    <router-link to="/bombas"> Bombas</router-link>
+    <router-link to="/usuarios">  Usuarios </router-link>
+    <router-link to="/motores"> Motores </router-link>
+    <router-link to="/bombas"> Bombas </router-link>
+    <!-- <router-link to="/login"> Login</router-link> -->
 
   </nav>
   <router-view/>
@@ -26,6 +27,8 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin: 0 10px;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
